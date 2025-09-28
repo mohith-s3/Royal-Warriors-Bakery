@@ -1,0 +1,162 @@
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Explore Menu | Whisk Away by Titli</title>
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #ffe5ec;
+      --accent: #d63384;
+      --dark-pink: #c9184a;
+      --text: #3c3c3c;
+      --white: #fff;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: var(--primary);
+      color: var(--text);
+      text-align: center;
+      padding: 2rem;
+    }
+
+    header {
+      margin-bottom: 2rem;
+    }
+    header h1 {
+      font-family: 'Pacifico', cursive;
+      color: var(--accent);
+      font-size: 2.5rem;
+    }
+
+    .menu-grid {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+
+    .menu-item {
+      background: var(--white);
+      border-radius: 20px;
+      box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+      width: 350px;
+      overflow: hidden;
+      transition: transform 0.3s ease;
+    }
+    .menu-item:hover {
+      transform: translateY(-5px);
+    }
+
+    .menu-item img {
+      width: 100%;
+      height: 100;
+      object-fit: cover;
+    }
+
+    .menu-item h3 {
+      color: var(--dark-pink);
+      font-family: 'Pacifico', cursive;
+      font-size: 1.6rem;
+      margin: 0.8rem 0 0.4rem;
+    }
+
+    .menu-item p {
+      font-size: 0.95rem;
+      padding: 0 1rem 1rem;
+      color: #555;
+    }
+
+    .back-button {
+      display: inline-block;
+      margin-top: 2rem;
+      padding: 0.8rem 1.5rem;
+      border-radius: 30px;
+      background: var(--dark-pink);
+      color: white;
+      text-decoration: none;
+      font-weight: 600;
+      transition: background 0.3s ease;
+    }
+    .back-button:hover {
+      background: var(--accent);
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Our Menu</h1>
+    <p>Sweet treats crafted with love, just for you!</p>
+  </header>
+
+  <section class="menu-grid">
+    <div class="menu-item">
+      <img src="https://i.imgur.com/834d972.jpeg" alt="Chocolate Macarons">
+      <h3>Classic Chocolate Macarons</h3>
+      <p>Rich and creamy chocolate indulgence in every bite.</p>
+    </div>
+    <div class="menu-item">
+      <img src="https://i.imgur.com/cCcSd5N.jpeg" alt="Cupcake">
+      <h3>All flavours cake</h3>
+      <p>Fluffy, creamy and oh-so-delicious with chocolate inside.</p>
+    </div>
+    <div class="menu-item">
+      <img src="https://i.imgur.com/MxP2BKW.jpeg" alt="Delicious Cake">
+      <h3>Chocolaty cupcakes</h3>
+      <p>A dreamy cake that melts like ice cream in your mouth.</p>
+    </div>
+    <div class="menu-item">
+      <img src="https://i.imgur.com/dQnHzAS.jpeg" alt="Red Velvet Cake">
+      <h3>Red Velvet Cake</h3>
+      <p>Soft, moist, and topped with silky cream cheese frosting.</p>
+    </div>
+    <div class="menu-item">
+      <img src="https://i.imgur.com/VCNyvCM.jpeg" alt="Fruit Tart">
+      <h3>Fruit Tart</h3>
+      <p>Fresh seasonal fruits on a buttery crust with custard cream.</p>
+    </div>
+    <div class="menu-item">
+      <img src="https://i.imgur.com/i6d4Hrz.jpeg" alt="Strawberry Cupcake">
+      <h3>Strawberry Cupcake</h3>
+      <p>Sweet strawberry frosting with a berry surprise inside.</p>
+    </div>
+    <div class="menu-item">
+      <img src="https://i.imgur.com/oDgQ3vp.jpeg" alt="Cheesecake">
+      <h3>New York Cheesecake</h3>
+      <p>Creamy, rich, and baked to perfection with a biscuit base.</p>
+    </div>
+    <div class="menu-item">
+      <img src="https://i.imgur.com/WBXSeFD.jpeg" alt="Brownies">
+      <h3>Fudgy Brownies</h3>
+      <p>Gooey chocolate brownies that melt in your mouth.</p>
+    </div>
+    <div class="menu-item">
+      <img src="https://i.imgur.com/3fCKSA4.jpeg" alt="Cookies">
+      <h3>Pastry in all flavours</h3>
+      <p>Crunchy edges, soft center, packed with choco chips.</p>
+    </div>
+    <div class="menu-item">
+      <img src="https://i.imgur.com/Hy6TTIA.jpeg" alt="Donuts">
+      <h3>Glazed Donuts</h3>
+      <p>https://i.imgur.com/Hy6TTIA.jpeg</p>
+    </div>
+    <div class="menu-item">
+      <img src="https://i.imgur.com/tqcmRKC.jpeg" alt="Pastry">
+      <h3>Bomboloni</h3>
+      <p><p>delicios bomboloni.</p>
+    </div>
+    <div class="menu-item">
+      <img src="https://i.imgur.com/cIDDqS6.jpeg" alt="Pineapple Cake">
+      <h3>Pineapple Cake</h3>
+      <p>Light, fruity, and refreshingly tropical pineapple flavor.</p>
+    </div>
+  </section>
+
+  <a href="index.html" class="back-button">Back to Home</a>
+</body>
+</html>
