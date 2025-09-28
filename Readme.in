@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Whisk Away by Titli</title>
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #fff0f5;
+      --accent: #d63384;
+      --red:red;
+      --light-pink: #ffe5ec;
+      --purple: #b5179e;
+      --dark-pink: #c9184a;
+      --text: #3c3c3c;
+      --red: #a4133c;
+      --gray: #f0f0f0;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: var(--primary);
+      color: var(--text);
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      background-color: white;
+      z-index: 1000;
+      padding: 1rem 2rem;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    header h1 {
+      font-family: 'Pacifico', cursive;
+      color: var(--accent);
+      font-size: 2rem;
+    }
+
+    nav {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin-top: 0.5rem;
+    }
+
+    nav a {
+      margin: 0.5rem 1rem;
+      text-decoration: none;
+      color: var(--accent);
+      font-weight: 600;
+    }
+
+    /* HERO */
+    .hero {
+      height: 85vh;
+      background-size: cover;
+      background-position: center;
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      padding-left: 12%;
+      color: white;
+      position: relative;
+      transition: background-image 1s ease-in-out;
+    }
+
+    .order-now-hero {
+      background-color: var(--red);
+      color: white;
+      padding: 1rem 2rem;
+      font-size: 3.0rem;
+      border: none;
+      border-radius: 50px;
+      cursor: pointer;
+      transition: 0.3s ease;
+      text-transform: uppercase;
+      font-family: 'Poppins', sans-serif;
+    }
+    .order-now-hero:hover { background-color: var(red); }
+
+    section { padding: 4rem 2rem; text-align: center; }
+
+    section h3 {
+      font-family: 'Pacifico', cursive;
+      font-size: 2.2rem;
+      color: var(--accent);
+      margin-bottom: 1rem;
+      display: inline-block;
+      background-color: #ffe5ec;
+      padding: 0.5rem 2rem;
+      border-radius: 50px;
+    }
+
+    /* MENU */
+    .menu-grid {
+      display: flex;
+      justify-content: center;
+      align-items: stretch;
+      gap: 2rem;
+      margin-top: 3rem;
+      flex-wrap: wrap;
+    }
+    .menu-item {
+      background: white;
+      border-radius: 30px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+      overflow: hidden;
+      transition: 0.3s ease;
+      width: 280px;
+      flex: 1 1 250px;
+    }
+    .menu-item img {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+      border-top-left-radius: 30px;
+      border-top-right-radius: 30px;
+    }
+    .menu-item h4 {
+      margin: 1rem;
+      color: var(--dark-pink);
+      font-size: 1.8rem;
+      font-family: 'Pacifico', cursive;
+    }
+    .menu-item p { margin: 0 1rem 1.5rem; font-size: 1rem; color: #555; }
+
+    .about { background-color: var(--light-pink); }
+
+    .explore-button {
+      background-color: var(--dark-pink); 
+      color: white;
+      padding: 0.8rem 1.8rem;
+      font-size: 1.3rem;
+      border: none;
+      border-radius: 50px;
+      cursor: pointer;
+      transition: 0.3s ease;
+      margin-top: 2rem;
+      font-family: 'Poppins', cursive;
+    }
+    .explore-button:hover { background-color: var(--red); }
+
+    /* GALLERY CAROUSEL */
+    .gallery-carousel {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+      max-width: 100%;
+      margin: 2rem auto;
+    }
+    .gallery-carousel img {
+      width: 880px;
+      height: 480px;
+      object-fit: cover;
+      border-radius: 20px;
+    }
+
+    /* TESTIMONIALS */
+    .testimonial-container {
+      position: relative;
+      max-width: 700px;
+      margin: 2rem auto;
+      overflow: hidden;
+    }
+    .testimonial-slide {
+      display: none;
+      background: var(--gray);
+      padding: 1.5rem;
+      border-radius: 20px;
+      font-size: 1rem;
+      color: #444;
+    }
+    .testimonial-slide.active { display: block; }
+
+    .dots {
+      text-align: center;
+      margin-top: 1rem;
+    }
+    .dot {
+      height: 12px;
+      width: 12px;
+      margin: 0 5px;
+      display: inline-block;
+      border-radius: 50%;
+      background-color: #bbb;
+      cursor: pointer;
+    }
+    .dot.active { background-color: var(--accent); }
+
+    /* CONTACT */
+    .contact {
+      background: var(--light-pink);
+      padding: 3rem 2rem;
+    }
+    .contact h3 { margin-bottom: 2rem; }
+    .contact-links {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+    .contact-links a {
+      text-decoration: none;
+      color: white;
+      background: var(--dark-pink);
+      padding: 0.8rem 1.5rem;
+      border-radius: 50px;
+      transition: 0.3s ease;
+    }
+    .contact-links a:hover { background: var(--red); }
+
+    /* RESPONSIVE */
+    @media (max-width: 768px) {
+      header { flex-direction: column; text-align: center; }
+      nav { margin-top: 1rem; }
+      .hero { height: 60vh; padding-left: 8%; }
+      .order-now-hero { font-size: 1.2rem; padding: 0.8rem 1.5rem; }
+      .menu-item { width: 90%; }
+      .menu-item img { height: 200px; }
+      .gallery-carousel img { width: 220px; height: 220px; }
+      .testimonial-slide { font-size: 0.95rem; }
+    }
+
+    @media (max-width: 480px) {
+      header h1 { font-size: 1.4rem; }
+      .hero { height: 50vh; padding-left: 5%; background-size: cover; }
+      .order-now-hero { font-size: 1rem; padding: 0.6rem 1rem; }
+      section h3 { font-size: 1.6rem; padding: 0.4rem 1rem; }
+      .menu-item h4 { font-size: 1.4rem; }
+      .explore-button { font-size: 1rem; width: 100%; }
+      .gallery-carousel img { width: 180px; height: 180px; }
+      .testimonial-slide { font-size: 0.9rem; padding: 1rem; }
+      .contact-links a { font-size: 0.9rem; padding: 0.6rem 1rem; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Royal Warrior Bakery</h1>
+    <nav>
+      <a href="#menu">Menu</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero" id="hero">
+    <button class="order-now-hero" id="order-now-btn">Order Now</button>
+  </section>
+
+  <!-- MENU -->
+  <section id="menu">
+    <h3>items we offer</h3>
+    <div class="menu-grid">
+      <div class="menu-item">
+        <img src="https://i.imgur.com/FirrlJu.jpeg alt="Cake 1">
+        <h4>Classic Chocolate Macarons</h4>
+        <p>Rich and creamy chocolate cake with luscious layers.</p>
+      </div>
+      <div class="menu-item">
+        <img src="https://i.imgur.com/FH5YgM6.jpeg" alt="Cake 2">
+        <h4>Chocolaty Cupcake</h4>
+        <p>Fresh tasty, creamy with chocolate inside.</p>
+      </div>
+      <div class="menu-item">
+        <img src="https://i.imgur.com/90ZKYpu.jpeg" alt="Cake 3">
+        <h4>Delicious Cake</h4>
+        <p>A dreamy cake that feels like ice cream.</p>
+      </div>
+    </div>
+    <a href="menu.html"><button class="explore-button">Explore Menu</button></a>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about" class="about">
+    <h3>About Us</h3>
+    <p style="max-width:700px; margin:2rem auto; font-size:1.1rem; line-height:1.6;">
+     WhiskAway by Titli was born out of a simple passion for baking and a big dream in the heart of Siliguri. Founded by Titli, a self-taught home baker, the brand is built on love, creativity, and the joy of making people smile through sweet indulgences. What started as a small experiment in the home kitchen quickly grew into a name people associate with warmth and celebration. Every cake at WhiskAway is made with care, using only the best ingredients and crafted to be 100% eggless, so everyone can enjoy without compromise.
+    </p>
+  </section>
+
+  <!-- SQUARE CAROUSEL -->
+  <div class="gallery-carousel">
+    <img id="gallery-img" src="https://i.imgur.com/sx1iLSB.jpeg"
+    alt="Gallery Image">
+  </div>
+
+  <!-- TESTIMONIALS -->
+  <section id="testimonials">
+    <h3>Testimonials</h3>
+    <div class="testimonial-container">
+      <div class="testimonial-slide active">"Absolutely loved the macarons! So fresh and perfect." – Aditi</div>
+      <div class="testimonial-slide">"The cake was dreamy and everyone asked where I got it from!" – Rahul</div>
+      <div class="testimonial-slide">"Whisk Away is my go-to for every celebration now." – Sneha</div>
+    </div>
+    <div class="dots">
+      <span class="dot active" onclick="showSlide(0)"></span>
+      <span class="dot" onclick="showSlide(1)"></span>
+      <span class="dot" onclick="showSlide(2)"></span>
+    </div>
+  </section>
+
+ <!-- CONTACT -->
+<section id="contact" class="contact">
+  <h3>Contact Us</h3>
+  <div class="contact-details" style="max-width:700px; margin:0 auto; text-align:center; font-size:1rem; line-height:1.8;">
+    <p><strong> Location:</strong>Siddharthanagar near JSS Public School road opposite to Ganapati Temple, Mysore</p>
+    <p><strong> Phone:</strong>+91 78290 45274</p>
+    <p><strong> WhatsApp:</strong> <a href="https://wa.me/7829045274" target="_blank" style="color:var(--dark-pink); text-decoration:none;">Chat with us</a></p>
+    <p><strong>
+    <p><strong>️ How to Reach:</strong> Located at the heart of Mysore.</p>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer style="background:white; text-align:center; padding:1.5rem; font-size:0.9rem; color:#777; border-top:1px solid #eee;">
+  <p>Made with love by <span style="color:var(--accent); font-weight:600;">Royal Warriors Bakery</span> ✨</p>
+  <p>© 2025. All Rights Reserved.</p>
+</footer>
+>
+
+  <script>
+    // HERO SLIDE
+    const hero = document.getElementById("hero");
+    const heroImages = [
+      "https://i.imgur.com/J24Tnq0.jpeg"
+    ];
+    let currentHero = 0;
+    function changeHeroImage() {
+      hero.style.backgroundImage = `url('${heroImages[currentHero]}')`;
+      currentHero = (currentHero + 1) % heroImages.length;
+    }
+    setInterval(changeHeroImage, 5000);
+    changeHeroImage();
+
+   // GALLERY CAROUSEL
+const galleryImg = document.getElementById("gallery-img");
+const galleryImages = [ "https://i.imgur.com/8x7rmau.jpeg",
+"https://i.imgur.com/sx1iLSB.jpeg",
+"https://i.imgur.com/XbouBIw.jpeg"
+];
+
+    let galleryIndex = 0;
+    function changeGallery() {
+      galleryImg.src = galleryImages[galleryIndex];
+      galleryIndex = (galleryIndex + 1) % galleryImages.length;
+    }
+    setInterval(changeGallery, 4000);
+
+   // TESTIMONIALS
+    let testimonialIndex = 0;
+    const slides = document.querySelectorAll(".testimonial-slide");
+    const dots = document.querySelectorAll(".dot");
+    function showSlide(index) {
+      slides.forEach((s, i) => {
+        s.classList.toggle("active", i === index);
+        dots[i].classList.toggle("active", i === index);
+      });
+      testimonialIndex = index;
+    }
+  </script>
+</body>
+</html>
+    }
+  </script>
+</body>
+</html>
+<!-- ORDER FORM POPUP -->
+<div class="order-form-overlay" id="orderForm">
+  <div class="order-form-box">
+    <span class="close-btn" onclick="closeForm()">&times;</span>
+    <h2>Place Your Order</h2>
+    <form id="cakeOrderForm">
+      <label for="name">Name</label>
+      <input type="text" id="name" required>
+
+      <label for="phone">Phone Number</label>
+      <input type="tel" id="phone" required>
+
+      <label for="cake">Cake</label>
+      <input type="text" id="cake" placeholder="Eg: Chocolate Truffle" required>
+
+      <label for="flavor">Flavor</label>
+      <input type="text" id="flavor" placeholder="Eg: Strawberry" required>
+
+      <label for="size">Size</label>
+      <select id="size" required>
+        <option value="">Select size</option>
+        <option value="0.5kg">0.5 kg</option>
+        <option value="1kg">1 kg</option>
+        <option value="2kg">2 kg</option>
+      </select>
+
+      <button type="submit">Submit</button>
+    </form>
+    <div class="thank-you" id="thankYouMessage">
+      <p>🎉 Thank you for ordering! We'll get back to you soon.</p>
+    </div>
+  </div>
+</div>
+
+<style>
+.order-form-overlay {
+  display: none; /* important: keep hidden by default */
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(0,0,0,0.6);
+  justify-content: center;
+  align-items: center;
+  z-index: 2000;
+}
+.order-form-box {
+  background: white;
+  padding: 2rem;
+  border-radius: 20px;
+  width: 90%;
+  max-width: 500px;
+  position: relative;
+  text-align: left;
+}
+.order-form-box h2 {
+  color: #d63384;
+  font-family: 'Pacifico', cursive;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+.order-form-box label {
+  display: block;
+  margin: 0.8rem 0 0.3rem;
+  font-weight: 600;
+}
+.order-form-box input,
+.order-form-box select {
+  width: 100%;
+  padding: 0.8rem;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  font-size: 1rem;
+}
+.order-form-box button {
+  background: #c9184a;
+  color: white;
+  padding: 0.8rem 1.5rem;
+  border: none;
+  border-radius: 50px;
+  margin-top: 1rem;
+  cursor: pointer;
+  width: 100%;
+  font-size: 1.1rem;
+}
+.order-form-box button:hover { background: #a4133c; }
+.close-btn {
+  position: absolute;
+  top: 10px; right: 15px;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: #555;
+}
+.thank-you {
+  display: none;
+  text-align: center;
+  font-size: 1.2rem;
+  padding: 2rem;
+}
+</style>
+
+<script>
+// Get elements
+const orderBtn = document.getElementById("order-now-btn");
+const orderForm = document.getElementById("orderForm");
+const cakeOrderForm = document.getElementById("cakeOrderForm");
+const thankYouMessage = document.getElementById("thankYouMessage");
+
+// Open form when "Order Now" clicked
+orderBtn.addEventListener("click", () => {
+  orderForm.style.display = "flex";
+});
+
+// Close form
+function closeForm() {
+  orderForm.style.display = "none";
+  cakeOrderForm.style.display = "block";
+  thankYouMessage.style.display = "none";
+  cakeOrderForm.reset();
+}
+
+// Handle form submission
+cakeOrderForm.addEventListener("submit", (e) => {
+  e.preventDefault();
+  cakeOrderForm.style.display = "none";
+  thankYouMessage.style.display = "block";
+
+  // Close after 3 seconds
+  setTimeout(() => {
+    closeForm();
+  }, 3000);
+});
+</script>
